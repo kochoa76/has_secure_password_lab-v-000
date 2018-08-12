@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       redirect_to controller: 'users', action: 'welcome'
     else
       return head(:forbidden), alert: "Incorrect password or username"
+      redirect_to controller: 'sessions', action: 'new'
     end
   end
 
