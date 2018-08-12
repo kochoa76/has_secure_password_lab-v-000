@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user= User.create(user_params)
     @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
-    redirect_to controller: 'users/welcome' 
+    redirect_to controller: 'users/welcome'
 
   end
 
