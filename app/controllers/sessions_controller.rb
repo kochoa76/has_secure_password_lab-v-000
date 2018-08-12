@@ -6,8 +6,9 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(name: params[:user][:name])
-    if @user && @user.password == @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
+      redirect_to controller: 'users', action: 'welcome'
     else
       return head(:forbidden), alert: "Incorrect password or username"
     end
