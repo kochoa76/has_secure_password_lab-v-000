@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
     if @user.save && @user.authenticate(params[:password])
       session[:user_id] = @user.id
     else
-      return head(:forbidden) 
-    end 
+      return head(:forbidden)
+    end
   end 
 
   def destroy
